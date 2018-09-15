@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { HomeComponent } from './home.component'
-import { commonTestingModules, commonTestingProviders } from '../common/common.testing';
+import { commonTestingModules, commonTestingProviders } from '../common/common.testing'
 
 describe('HomeComponent', () => {
   let component: HomeComponent

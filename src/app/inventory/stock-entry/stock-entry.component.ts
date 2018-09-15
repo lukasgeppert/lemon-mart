@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-stock-entry',
@@ -7,13 +7,10 @@ import { Component, OnInit } from '@angular/core';
       stock-entry works!
     </p>
   `,
-  styles: []
+  styles: [],
 })
 export class StockEntryComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
