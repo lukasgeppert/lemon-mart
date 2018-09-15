@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { sign } from 'fake-jwt-sign' // For fakeAuthProvider only
+import * as decode from 'jwt-decode'
 import { BehaviorSubject, Observable, of, throwError as observableThrowError } from 'rxjs'
+import { catchError, map } from 'rxjs/operators'
+import { transformError } from '../common/common'
 import { Role } from './role.enum'
 
 export interface IAuthService {
@@ -75,6 +78,33 @@ export class AuthService {
     } as IServerAuthResponse
 
     return of(authResponse)
+  }
+
+  login(email: string, password: string): Observable<IAuthStatus> {
+    this.logout()
+
+    const loginResponse = this.authProvider(email, password).pipe(
+      map(value => {
+        return decode(value.accessToken) as IAuthStatus
+      }),
+      catchError(transformError)
+    )
+
+    loginResponse.subscribe(
+      res => {
+        this.authStatus.next(res)
+      },
+      err => {
+        this.logout()
+        return observableThrowError(err)
+      }
+    )
+
+    return loginResponse
+  }
+
+  logout() {
+    this.authStatus.next(defaultAuthStatus)
   }
 
   constructor(private httpClient: HttpClient) {

@@ -9,9 +9,11 @@ import { AppComponent } from './app.component'
 import { AuthService } from './auth/auth.service'
 import { HomeComponent } from './home/home.component'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
+import { LoginComponent } from './login/login.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, PageNotFoundComponent],
+  declarations: [AppComponent, HomeComponent, PageNotFoundComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -19,6 +21,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MaterialModule,
     HttpClientModule,
     FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
