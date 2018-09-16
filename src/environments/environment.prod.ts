@@ -1,1 +1,4 @@
-export const environment = { production: true, baseUrl: 'https://now-ppgcnaskqo.now.sh' }
+export const environment = {
+  production: true,
+  baseUrl: 'https://now-ppgcnaskqo.now.sh',
+}
