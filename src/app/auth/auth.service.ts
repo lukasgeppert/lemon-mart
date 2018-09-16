@@ -5,6 +5,7 @@ import * as decode from 'jwt-decode'
 import { BehaviorSubject, Observable, of, throwError as observableThrowError } from 'rxjs'
 import { catchError, map } from 'rxjs/operators'
 import { transformError } from '../common/common'
+import { CacheService } from './cache.service'
 import { Role } from './role.enum'
 
 export interface IAuthService {
@@ -30,15 +31,23 @@ export const defaultAuthStatus = {
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AuthService extends CacheService {
   authStatus = new BehaviorSubject<IAuthStatus>(
-    // this.getItem('authStatus') ||
-    defaultAuthStatus
+    this.getItem('authStatus') || defaultAuthStatus
   )
   private readonly authProvider: (
     email: string,
     password: string
   ) => Observable<IServerAuthResponse>
+
+  constructor(private httpClient: HttpClient) {
+    super()
+    this.authStatus.subscribe(authStatus => this.setitem('authStatus', authStatus))
+    // Fake login function to simulate roles
+    this.authProvider = this.fakeAuthProvider
+    // Example of a real login call to server-side
+    // this.authProvider = this.exampleAuthProvider
+  }
 
   // private readonly exampleAuthProvider: (
   //   email: string,
@@ -105,13 +114,6 @@ export class AuthService {
 
   logout() {
     this.authStatus.next(defaultAuthStatus)
-  }
-
-  constructor(private httpClient: HttpClient) {
-    // Fake login function to simulate roles
-    this.authProvider = this.fakeAuthProvider
-    // Example of a real login call to server-side
-    // this.authProvider = this.exampleAuthProvider
   }
 
   isAuthenticated() {
