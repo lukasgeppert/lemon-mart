@@ -17,7 +17,7 @@ describe('SimpleDialogComponent', () => {
         },
         {
           provide: MAT_DIALOG_DATA,
-          useValue: {},
+          useValue: {}, // Add any data you wish to test if it is passed/used correctly
         },
       ],
       declarations: [SimpleDialogComponent],

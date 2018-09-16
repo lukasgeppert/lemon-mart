@@ -10,6 +10,9 @@ import { Role } from './role.enum'
 
 export interface IAuthService {
   authStatus: BehaviorSubject<IAuthStatus>
+  login(email: string, password: string): Observable<IAuthStatus>
+  logout()
+  getToken(): string
 }
 
 export interface IAuthStatus {
@@ -31,7 +34,7 @@ export const defaultAuthStatus = {
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService extends CacheService {
+export class AuthService extends CacheService implements IAuthService {
   authStatus = new BehaviorSubject<IAuthStatus>(
     this.getItem('authStatus') || defaultAuthStatus
   )

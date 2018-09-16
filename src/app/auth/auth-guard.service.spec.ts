@@ -7,7 +7,7 @@ describe('AuthGuard', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       imports: commonTestingModules,
-      providers: [commonTestingProviders.concat(AuthGuard), UiService],
+      providers: [commonTestingProviders.concat([AuthGuard, UiService])],
     }))
 
   it('should be created', () => {
