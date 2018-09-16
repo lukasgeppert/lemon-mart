@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { HomeComponent } from './home.component'
 import { commonTestingModules, commonTestingProviders } from '../common/common.testing'
 import { LoginComponent } from '../login/login.component'
+import { UiService } from '../common/ui.service'
 
 describe('HomeComponent', () => {
   let component: HomeComponent
@@ -11,7 +12,7 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: commonTestingModules,
-      providers: commonTestingProviders,
+      providers: [commonTestingProviders, UiService],
       declarations: [HomeComponent, LoginComponent],
     }).compileComponents()
   }))
