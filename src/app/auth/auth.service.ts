@@ -45,7 +45,7 @@ export class AuthService extends CacheService implements IAuthService {
 
   constructor(private httpClient: HttpClient) {
     super()
-    this.authStatus.subscribe(authStatus => this.setitem('authStatus', authStatus))
+    this.authStatus.subscribe(authStatus => this.setItem('authStatus', authStatus))
     // Fake login function to simulate roles
     this.authProvider = this.fakeAuthProvider
     // Example of a real login call to server-side
@@ -122,7 +122,7 @@ export class AuthService extends CacheService implements IAuthService {
   }
 
   private setToken(jwt: string) {
-    this.setitem('jwt', jwt)
+    this.setItem('jwt', jwt)
   }
 
   private getDecodedToken(): IAuthStatus {

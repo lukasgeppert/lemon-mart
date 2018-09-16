@@ -7,7 +7,7 @@ export abstract class CacheService {
     return null
   }
 
-  protected setitem(key: string, data: object | string) {
+  protected setItem(key: string, data: object | string) {
     if (typeof data === 'string') {
       localStorage.setItem(key, data)
     }
