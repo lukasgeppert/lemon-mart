@@ -1,4 +1,4 @@
-import { Role } from "../../auth/role.enum";
+import { Role } from '../../auth/role.enum'
 
 export interface IUser {
   id: string
@@ -45,8 +45,8 @@ export class User implements IUser {
       zip: '',
     },
     public phones = []
-  ) { }
-  
+  ) {}
+
   static BuildUser(user: IUser) {
     return new User(
       user.id,

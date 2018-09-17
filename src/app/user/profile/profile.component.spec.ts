@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
-
+import { commonTestingModules, commonTestingProviders } from '../../common/common.testing'
+import { UserMaterialModule } from '../user-material.module'
+import { ViewUserComponent } from '../view-user/view-user.component'
 import { ProfileComponent } from './profile.component'
 
 describe('ProfileComponent', () => {
@@ -8,7 +10,9 @@ describe('ProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ProfileComponent],
+      providers: [commonTestingProviders],
+      imports: commonTestingModules.concat([UserMaterialModule]),
+      declarations: [ProfileComponent, ViewUserComponent],
     }).compileComponents()
   }))
 

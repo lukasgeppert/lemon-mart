@@ -42,7 +42,7 @@ export class UserService extends CacheService {
     const updateResponse = this.httpClient
       .put<IUser>(`${environment.baseUrl}/v1/user/${user.id || 0}`, user)
       .pipe(catchError(transformError))
-    
+
     updateResponse.subscribe(
       res => {
         this.currentUser.next(res)

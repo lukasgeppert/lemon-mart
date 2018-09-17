@@ -6,6 +6,8 @@ import { ManagerHomeComponent } from './manager-home/manager-home.component'
 import { ManagerComponent } from './manager.component'
 import { ReceiptLookupComponent } from './receipt-lookup/receipt-lookup.component'
 import { UserManagementComponent } from './user-management/user-management.component'
+import { ViewUserComponent } from '../user/view-user/view-user.component'
+import { UserResolve } from '../user/user/user.resolve'
 
 const routes: Routes = [
   {
@@ -28,6 +30,16 @@ const routes: Routes = [
       {
         path: 'users',
         component: UserManagementComponent,
+        children: [
+          {
+            path: 'user',
+            component: ViewUserComponent,
+            outlet: 'detail',
+            resolve: {
+              user: UserResolve,
+            },
+          },
+        ],
         canActivate: [AuthGuard],
         data: {
           expectedRole: Role.Manager,
@@ -48,5 +60,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
+  declarations: [ViewUserComponent],
 })
 export class ManagerRoutingModule {}
