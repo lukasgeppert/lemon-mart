@@ -8,6 +8,7 @@ import { ManagerHomeComponent } from './manager-home/manager-home.component'
 import { ManagerComponent } from './manager.component'
 import { ReceiptLookupComponent } from './receipt-lookup/receipt-lookup.component'
 import { UserManagementComponent } from './user-management/user-management.component'
+import { UserTableComponent } from './user-table/user-table.component'
 
 const routes: Routes = [
   {
@@ -32,6 +33,11 @@ const routes: Routes = [
         component: UserManagementComponent,
         children: [
           {
+            path: '',
+            component: UserTableComponent,
+            outlet: 'master',
+          },
+          {
             path: 'user',
             component: ViewUserComponent,
             outlet: 'detail',
@@ -41,6 +47,7 @@ const routes: Routes = [
           },
         ],
         canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
         data: {
           expectedRole: Role.Manager,
         },
