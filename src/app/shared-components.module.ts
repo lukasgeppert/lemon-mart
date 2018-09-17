@@ -1,15 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { AppMaterialModule } from './app-material.module';
-import { ViewUserComponent } from './user/view-user/view-user.component';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FlexLayoutModule } from '@angular/flex-layout'
+import { AppMaterialModule } from './app-material.module'
+import { ViewUserComponent } from './user/view-user/view-user.component'
 
 @NgModule({
   imports: [
-    CommonModule,FormsModule,ReactiveFormsModule,FlexLayoutModule,AppMaterialModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    AppMaterialModule,
   ],
   exports: [ViewUserComponent],
   declarations: [ViewUserComponent],
 })
-export class SharedComponentsModule { }
+export class SharedComponentsModule {}

@@ -16,7 +16,7 @@ import { LoginComponent } from './login/login.component'
 import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 import { AppMaterialModule } from './app-material.module'
-import { SharedComponentsModule } from './shared-components.module';
+import { SharedComponentsModule } from './shared-components.module'
 
 @NgModule({
   declarations: [
