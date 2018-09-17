@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { AuthGuard } from '../auth/auth-guard.service'
 import { Role } from '../auth/role.enum'
+import { UserResolve } from '../user/user/user.resolve'
+import { ViewUserComponent } from '../user/view-user/view-user.component'
 import { ManagerHomeComponent } from './manager-home/manager-home.component'
 import { ManagerComponent } from './manager.component'
 import { ReceiptLookupComponent } from './receipt-lookup/receipt-lookup.component'
 import { UserManagementComponent } from './user-management/user-management.component'
-import { ViewUserComponent } from '../user/view-user/view-user.component'
-import { UserResolve } from '../user/user/user.resolve'
 
 const routes: Routes = [
   {
@@ -60,6 +60,5 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  declarations: [ViewUserComponent],
 })
 export class ManagerRoutingModule {}

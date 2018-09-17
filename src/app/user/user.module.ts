@@ -7,7 +7,7 @@ import { LogoutComponent } from './logout/logout.component'
 import { ProfileComponent } from './profile/profile.component'
 import { UserMaterialModule } from './user-material.module'
 import { UserRoutingModule } from './user-routing.module'
-import { ViewUserComponent } from './view-user/view-user.component';
+import { ViewUserComponent } from './view-user/view-user.component'
 
 @NgModule({
   imports: [
