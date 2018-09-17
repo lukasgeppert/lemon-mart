@@ -8,7 +8,6 @@ import { LogoutComponent } from './logout/logout.component'
 import { ProfileComponent } from './profile/profile.component'
 import { UserMaterialModule } from './user-material.module'
 import { UserRoutingModule } from './user-routing.module'
-import { NavigationMenuComponent } from '../navigation-menu/navigation-menu.component';
 
 @NgModule({
   imports: [
@@ -21,6 +20,6 @@ import { NavigationMenuComponent } from '../navigation-menu/navigation-menu.comp
     FlexLayoutModule,
     SharedComponentsModule,
   ],
-  declarations: [ProfileComponent, LogoutComponent, NavigationMenuComponent],
+  declarations: [ProfileComponent, LogoutComponent],
 })
 export class UserModule {}
