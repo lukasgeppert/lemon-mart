@@ -11,6 +11,7 @@ import { AppMaterialModule } from '../app-material.module'
 import { AuthService } from '../auth/auth.service'
 import { AuthServiceFake } from '../auth/auth.service.fake'
 import { UiService } from './ui.service'
+import { SharedComponentsModule } from '../shared-components.module';
 
 const FAKE_SVGS = {
   lemon: '<svg><path id="lemon" name="lemon"></path></svg>',
@@ -79,4 +80,5 @@ export const commonTestingModules: any[] = [
   NoopAnimationsModule,
   HttpClientTestingModule,
   RouterTestingModule,
+  SharedComponentsModule,
 ]
