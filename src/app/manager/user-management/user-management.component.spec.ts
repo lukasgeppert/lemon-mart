@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { UserManagementComponent } from './user-management.component'
 import { commonTestingProviders, commonTestingModules } from '../../common/common.testing'
+import { ManagerMaterialModule } from '../manager-material.module';
 
 describe('UserManagementComponent', () => {
   let component: UserManagementComponent
@@ -11,7 +12,7 @@ describe('UserManagementComponent', () => {
     TestBed.configureTestingModule({
       declarations: [UserManagementComponent],
       providers: commonTestingProviders,
-      imports: commonTestingModules,
+      imports: commonTestingModules.concat([ManagerMaterialModule]),
     }).compileComponents()
   }))
 

@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { MatTableDataSource } from '@angular/material'
 import { RouterTestingModule } from '@angular/router/testing'
-import { AppMaterialModule } from '../../app-material.module'
-import { commonTestingProviders, commonTestingModules } from '../../common/common.testing'
+import { commonTestingModules, commonTestingProviders } from '../../common/common.testing'
+import { User } from '../../user/user/user'
+import { ManagerMaterialModule } from '../manager-material.module'
 import { UserTableComponent } from './user-table.component'
 
 describe('UserTableComponent', () => {
@@ -12,13 +14,16 @@ describe('UserTableComponent', () => {
     TestBed.configureTestingModule({
       declarations: [UserTableComponent],
       providers: commonTestingProviders,
-      imports: commonTestingModules.concat([RouterTestingModule, AppMaterialModule]),
+      imports: commonTestingModules.concat([RouterTestingModule, ManagerMaterialModule]),
     }).compileComponents()
   }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(UserTableComponent)
     component = fixture.componentInstance
+    component.dataSource = new MatTableDataSource()
+    component.dataSource.data = [new User()]
+    component._skipLoading = true
     fixture.detectChanges()
   })
 

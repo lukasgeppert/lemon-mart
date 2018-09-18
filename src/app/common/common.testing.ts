@@ -12,6 +12,8 @@ import { AuthService } from '../auth/auth.service'
 import { AuthServiceFake } from '../auth/auth.service.fake'
 import { UiService } from './ui.service'
 import { SharedComponentsModule } from '../shared-components.module'
+import { UserService } from '../user/user/user.service';
+import { UserServiceFake } from '../user/user/user.service.fake';
 
 const FAKE_SVGS = {
   lemon: '<svg><path id="lemon" name="lemon"></path></svg>',
@@ -70,6 +72,7 @@ export class DomSanitizerFake {
 
 export const commonTestingProviders: any[] = [
   { provide: AuthService, useClass: AuthServiceFake },
+  { provide: UserService, useClass: UserServiceFake },
   UiService,
 ]
 
